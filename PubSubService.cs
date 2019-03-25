@@ -6,18 +6,18 @@ namespace Pup_Sup
     public class PubSubService
     {
         //Keeps set of subscriber topic wise, using set to prevent duplicates 
-        Dictionary<string, HashSet<Subscriber>> subscribersTopicMap = new Dictionary<string, HashSet<Subscriber>>();
+        public Dictionary<string, HashSet<Subscriber>> subscribersTopicMap { get; private set; } = new Dictionary<string, HashSet<Subscriber>>();
 
         //Holds messages published by publishers
-        Queue<Message> messagesQueue = new Queue<Message>();
+        public Queue<Message> messagesQueue { set; get; } = new Queue<Message>();
 
         //Adds message sent by publisher to queue
-        internal void AddMessageToQueue(Message message)
+        public void AddMessageToQueue(Message message)
         {
             messagesQueue.Enqueue(message);
         }
 
-        internal void AddSubscriber(string topic, NewsSubscriber subscriber)
+        public void AddSubscriber(string topic, NewsSubscriber subscriber)
         {
             if (subscribersTopicMap.ContainsKey(topic))
             {
@@ -33,7 +33,7 @@ namespace Pup_Sup
             }
         }
 
-        internal void RemoveSubscriber(string topic, NewsSubscriber subscriber)
+        public void RemoveSubscriber(string topic, NewsSubscriber subscriber)
         {
             if (subscribersTopicMap.ContainsKey(topic))
             {
@@ -70,7 +70,7 @@ namespace Pup_Sup
             }
         }
 
-        internal void GetMessagesForSubscriberOfTopic(string topic, NewsSubscriber subscriber)
+        public void GetMessagesForSubscriberOfTopic(string topic, NewsSubscriber subscriber)
         {
             if (messagesQueue.Count == 0)
             {

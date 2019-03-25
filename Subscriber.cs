@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pup_Sup
 {
-    abstract class Subscriber
+    public abstract class Subscriber
     {
         //store all messages received by the subscriber
         public List<Message> SubscriberMessages { set; get; } = new List<Message>();        

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pup_Sup
 {
-    class NewsSubscriber : Subscriber
+    public class NewsSubscriber : Subscriber
     {
         //Add subscriber with PubSubService for a topic
         public override void AddSubscriber(string Topic, PubSubService PubSubService)

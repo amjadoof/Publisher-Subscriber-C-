@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pup_Sup
 {
-    interface IPublisher
+    public interface IPublisher
     {
         void publish(Message Message, PubSubService PubSubService);
     }
